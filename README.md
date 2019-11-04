@@ -1,4 +1,3 @@
-# Derive
+# ExpressOptimization
 
-Проект посвящен алгоритму взятия частных производных от математической функции любой сложности, заданной в виде строки.
-На данный момент алгоритм поддерживает следующие операции, доступные для включения в состав функции: cos(x), sin(x), tg(x), ctg(x), ln(x), log(x), exp(x), x^y - возведение в степень, арифметические операции, вложенность функций.
+An implementation of different algorithms for an optimization of a mathematical expressions
