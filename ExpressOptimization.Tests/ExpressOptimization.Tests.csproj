@@ -63,7 +63,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Optimization.Module\ExpressOptimization.Library.csproj">
+    <ProjectReference Include="..\ExpressOptimization.Library\ExpressOptimization.Library.csproj">
       <Project>{3996291b-3152-49cb-a793-77f6d66426ed}</Project>
       <Name>ExpressOptimization.Library</Name>
     </ProjectReference>

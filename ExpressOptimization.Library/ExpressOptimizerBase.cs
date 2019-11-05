@@ -486,13 +486,13 @@ namespace ExpressOptimization.Library
         }
 
         /// <summary>
-        /// Вычисляет значение функции в заданной точке.
+        /// Вычисляет значение выражения в заданной точке.
         /// </summary>
         /// <param name="func">Функция в строковом виде.</param>
         /// <param name="values">Координаты n-мерной точки.</param>
         /// <param name="names">Идентификаторы переменных, заданные в строке функции.</param>
         /// <returns>Значение функции в заданной точке.</returns>
-        public double CalculateEquation(string func, double[] values, params string[] names) //TODO: заменить на dictionary
+        public double CalculateExpression(string func, double[] values, params string[] names) //TODO: заменить на dictionary
         {
             if (values.Length != names.Length)
                 throw new Exception("Массив параметров не совпадает по размеру с массивом значений.");
