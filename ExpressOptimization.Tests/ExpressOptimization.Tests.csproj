@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExpressOptimization.Library\ExpressOptimization.Library.csproj">
-      <Project>{3996291b-3152-49cb-a793-77f6d66426ed}</Project>
+      <Project>{31a930df-90a8-4ec0-82a8-3a1506babdf5}</Project>
       <Name>ExpressOptimization.Library</Name>
     </ProjectReference>
   </ItemGroup>
