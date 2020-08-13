@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace ExpressOptimization.Tests
 {
     /// <summary>
-    /// Tests for <see cref="DerivativeTaker"/>.
+    /// Tests for the <see cref="DerivativeTaker"/>.
     /// </summary>
     [TestFixture]
     public class DerivativeTakerTests

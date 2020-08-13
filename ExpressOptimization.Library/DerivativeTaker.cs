@@ -15,7 +15,7 @@ namespace ExpressOptimization.Library
         /// <param name="func">Функция.</param>
         /// <param name="dx">Переменная, по которой берется производная.</param>
         /// <returns>Производная от функции, представленная в виде строки.</returns>
-        public string Derivation(string func, string dx)
+        public string Derivation(string func, string dx = "x")
         {
             var postFix = ConvertToPostfix(func);
             var postfixDer = GetDerive(postFix, dx);
@@ -28,7 +28,7 @@ namespace ExpressOptimization.Library
         /// <param name="postfix">Функция.</param>
         /// <param name="dx">Диференцируемая переменная.</param>
         /// <returns>Производная в виде обратной польской строки.</returns>
-        protected List<string> GetDerive(IEnumerable<string> postfix, string dx)
+        protected List<string> GetDerive(IEnumerable<string> postfix, string dx = "x")
         {
             var postfixList = postfix.ToList();
             var stackVal = new Stack<string>(); //Стэк функций

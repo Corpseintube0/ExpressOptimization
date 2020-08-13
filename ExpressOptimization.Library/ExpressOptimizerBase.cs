@@ -6,7 +6,6 @@ using System.Linq;
 namespace ExpressOptimization.Library
 {
     //TODO: add logger
-    //TODO: add console application
 
     // Выражения записываются в явном виде. Пример (x+2)^2+4*x
     // Приоритет операций (по убыванию):
@@ -21,7 +20,7 @@ namespace ExpressOptimization.Library
         #region - Private fields -
         
         //Показывает, следует ли считать следующий считанный оператор унарным.
-        private static bool _unaryFlag; // TODO: похоже на костыль, лучше переделать
+        private static bool _unaryFlag; // TODO: похоже на костыль, переделать
 
         #endregion
 
@@ -486,13 +485,13 @@ namespace ExpressOptimization.Library
         }
 
         /// <summary>
-        /// Вычисляет значение функции в заданной точке.
+        /// Вычисляет значение выражения в заданной точке.
         /// </summary>
         /// <param name="func">Функция в строковом виде.</param>
         /// <param name="values">Координаты n-мерной точки.</param>
         /// <param name="names">Идентификаторы переменных, заданные в строке функции.</param>
         /// <returns>Значение функции в заданной точке.</returns>
-        public double CalculateEquation(string func, double[] values, params string[] names) //TODO: заменить на dictionary
+        public double CalculateExpression(string func, double[] values, params string[] names) //TODO: заменить на dictionary
         {
             if (values.Length != names.Length)
                 throw new Exception("Массив параметров не совпадает по размеру с массивом значений.");
