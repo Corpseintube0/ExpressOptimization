@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using ExpressOptimization.Library;
 
 namespace ExpressOptimization.ConsoleApp
@@ -29,10 +27,11 @@ namespace ExpressOptimization.ConsoleApp
 
         public static void Main(string[] args)
         {
+
             var index = Array.IndexOf(args, "-c");
             if (index > -1)
             {
-                if (!TryMergeCalcParams(index, ref args))
+                if (!TryMergeCalcParams(index + 1, ref args))
                 {
                     ShowHelp();
                     return;
@@ -53,7 +52,8 @@ namespace ExpressOptimization.ConsoleApp
                         argumentValues.Add("-v", args[i++]);
                         continue;
                     case "-c":
-                        
+                        //TODO: заполнение массива значений точки
+
                         break;
                     default:
                         if (String.IsNullOrEmpty(_inputString))
@@ -112,40 +112,44 @@ namespace ExpressOptimization.ConsoleApp
         private static bool TryMergeCalcParams(int startIndex, ref string[] args)
         {
             //TODO: test
-            var result = new List<string>();
+            if (args.Length <= startIndex + 1)
+            {
+                return false;
+            }
 
-            // добавление к результату всего что было до параметров
+            var result = new List<string>();
             for (int i = 0; i < startIndex; ++i)
             {
                 result.Add(args[i]); 
             }
 
             var isSetupCorrect = false;
-            var union = new List<string>(); // объединение параметров в один
+            var innerElements = new List<string>(); // объединение элементов в один
             if (!args[startIndex].StartsWith("'"))
             {
                 return false;
             }
 
-            union.Add(args[startIndex]);
+            innerElements.Add(args[startIndex]);
             int endIndex = args.Length - 1;
             for (int i = startIndex + 1; i < args.Length; ++i)
             {
-                union.Add(args[i]);
+                innerElements.Add(args[i]);
                 if (args[i].EndsWith("'"))
                 {
+                    endIndex = startIndex + innerElements.Count;
                     isSetupCorrect = true;
                     break;
                 }
             }
 
-            if (!isSetupCorrect || union.Count % 2 != 0) // проверка корректности
+            if (!isSetupCorrect || innerElements.Count % 2 != 0) // проверка корректности массива
             {
                 return false;
             }
             
-            //TODO: удалить символ ' в первом и последнем аргументе
-            result.Add(String.Join(" ", union));
+            var union = String.Join(" ", innerElements).Trim('\'');
+            result.Add(union);
             for (int i = endIndex; i < args.Length; ++i) // добавление оставшихся аргументов к результату
             {
                 result.Add(args[i]);

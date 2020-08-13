@@ -6,7 +6,6 @@ using System.Linq;
 namespace ExpressOptimization.Library
 {
     //TODO: add logger
-    //TODO: add console application
 
     // Выражения записываются в явном виде. Пример (x+2)^2+4*x
     // Приоритет операций (по убыванию):
@@ -21,7 +20,7 @@ namespace ExpressOptimization.Library
         #region - Private fields -
         
         //Показывает, следует ли считать следующий считанный оператор унарным.
-        private static bool _unaryFlag; // TODO: похоже на костыль, лучше переделать
+        private static bool _unaryFlag; // TODO: похоже на костыль, переделать
 
         #endregion
 
